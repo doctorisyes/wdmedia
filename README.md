@@ -1,7 +1,3 @@
-<p align="center">
-    <img src="whiteTextLogo.svg" alt="WD Media Logo" style="width: 25vw">
-</p>
-
 <h3 align="center">Woodford & Douek Media</h3>
 
 <p align="center">
