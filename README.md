@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="wand-media-logo-refined-primary.svg" alt="WD Media Logo" style="width: 25vw">
+    <img src="wand-media-logo-favicon.svg" alt="WD Media Logo" style="width: 25vw">
 </p>
 
 <h3 align="center">Woodford & Douek Media</h3>
