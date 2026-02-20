@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="420" viewBox="0 0 1800 420">
+  <g fill="#111111">
+    <text x="120" y="260"
+          text-anchor="start"
+          font-family="Times New Roman, Times, serif"
+          font-size="220"
+          font-weight="700"
+          letter-spacing="-2">
+      W&amp;D
+    </text>
+    <text x="640" y="262"
+          text-anchor="start"
+          font-family="Times New Roman, Times, serif"
+          font-size="110"
+          font-weight="400"
+          letter-spacing="1.2">
+      media
+    </text>
+  </g>
+</svg>
