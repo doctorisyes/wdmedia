@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
-
-  <!-- Background -->
-  <rect width="100%" height="100%" fill="#000000"/>
-
-  <!-- Text -->
-  <g fill="#FFFFFF">
+  <g fill="#0000">
     <text x="800" y="420"
           text-anchor="middle"
           font-family="Times New Roman, Times, serif"
