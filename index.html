@@ -12,14 +12,135 @@
                 <h2>media</h2>
             </div>
             <nav>
-                <span>About Us</span>
-                <span>Our Services</span>
-                <span>Contact Us</span>
+                <a href="#services-section">Our Services</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact Us</a>
+                
             </nav>
         </header>
-        <h3 id="slogan">We do websites.</h3>
+        
+        <section id="hero">
+            <h3>Websites built to be seen.</h3>
+        </section>
+
+        <section id="services-section">
+            <h3>Our Services</h3>
+            <div class="services-container">
+                <div class="services-left">
+                    <div class="image-container">
+                        <img src="coding.gif" alt="Service 1" class="service-image active" data-service="1">
+                        <img src="server.gif" alt="Service 2" class="service-image" data-service="2">
+                        <img src="seo.gif" alt="Service 3" class="service-image" data-service="3">
+                        <img src="socialMedia.gif" alt="Service 4" class="service-image" data-service="4">
+                    </div>
+                </div>
+                <div class="services-right">
+                    <div class="service-item" data-service="1">
+                        <h4>Web Design</h4>
+                        <p>We create bespoke websites tailored to your business, developed professionally rather than off-the-shelf website builders.</p>
+                    </div>
+                    <div class="service-item" data-service="2">
+                        <h4>Web Hosting</h4>
+                        <p>Once your website is built, it must be securely hosted and continuously maintained to remain live and accessible.<br><br>
+We manage your hosting environment, domain renewals, server performance, and ensure your website is properly indexed by major search engines keeping it online, secure, and visible.</p>
+                    </div>
+                    <div class="service-item" data-service="3">
+                        <h4>Search Engine Optimisation</h4>
+                        <p>Being indexed is only the first step; ranking highly is what drives real traffic.<br><br>We enhance your website’s technical structure, content, and performance to improve visibility and organic growth, with optional paid search campaigns available to maximise reach such as Google Advertising.</p>
+                    </div>
+                    <div class="service-item" data-service="4">
+                        <h4>Social Media Strategy</h4>
+                        <p>We manage and align your social media presence across Instagram, TikTok, Facebook, LinkedIn and more: connecting platforms together and integrating them directly with your website for a cohesive digital ecosystem.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="pricing">
+            <h3>Pricing</h3>
+            <table class="pricing-table">
+                <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Base Price</th>
+                    <th>Notes</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Website Build</td>
+                    <td>£200</td>
+                    <td>Price increases with number of pages or complexity.</td>
+                </tr>
+                <tr>
+                    <td>Hosting & Maintenance</td>
+                    <td>£15 / month</td>
+                    <td>For static websites. Non-static or complex sites: £25 / month. Domain costs added separately.</td>
+                </tr>
+                <tr>
+                    <td>SEO (Starter Package)</td>
+                    <td>£50 / month</td>
+                    <td>Flat fee, includes indexing and basic optimisation.</td>
+                </tr>
+                <tr>
+                    <td>Social Media Management</td>
+                    <td>£20 / month</td>
+                    <td>Starter package includes two platforms. Additional platforms +£20/month each.</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="contact">
+            <h3>Contact Us</h3>
+            <div class="contact-grid">
+                <div class="contact-details">
+                    <h4>Get in touch</h4>
+                    <p>Email: woodforddouekmedia@gmail.com</p>
+                    <p>Phone/WhatsApp: +44 7436 058797</p>
+                    <p>Phone/WhatsApp: +44 7983 911178</p>
+                    <br>
+                    <h4>Social Media</h4>
+                    <ul class="social-links">
+                        <li><a href="#" aria-label="Instagram">Instagram</a></li>
+                        <li><a href="#" aria-label="TikTok">TikTok</a></li>
+                        <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+                        <li><a href="#" aria-label="Facebook">Facebook</a></li>
+                    </ul>
+                </div>
+
+                <form class="contact-form" action="mailto:woodforddouekmedia@gmail.com" method="post" enctype="text/plain">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" placeholder="Your name" required>
+
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+                    <label for="phone">Phone</label>
+                    <input id="phone" name="phone" type="tel" placeholder="+44 ...">
+
+                    <label for="service">Service Needed</label>
+                    <select id="service" name="service">
+                        <option>Web Design</option>
+                        <option>Web Hosting</option>
+                        <option>SEO</option>
+                        <option>Social Media Strategy</option>
+                    </select>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Tell us about your project" required></textarea>
+
+                    <button type="submit">Send Enquiry</button>
+                </form>
+            </div>
+        </section>
+
+
+        
         <footer>
             &copy; 2026 W&D Media. All Rights Reserved.
         </footer>
+        
+        <script src="script.js"></script>
     </body>
 </html>
