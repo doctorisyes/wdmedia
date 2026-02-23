@@ -122,3 +122,24 @@ if (serviceImages.length && initialServiceImage) {
     serviceImages.forEach(img => img.classList.remove('active'));
     initialServiceImage.classList.add('active');
 }
+
+// ── Hamburger mobile menu (compact dropdown) ──────
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav');
+
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        hamburger.classList.toggle('active', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close dropdown when a link is tapped
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('open');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
