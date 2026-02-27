@@ -2,10 +2,9 @@ const animatedHeadings = [
     { el: document.querySelector('#hero h3'), mode: 'hero' },
     { el: document.querySelector('#services-section h3'), mode: 'section' },
     { el: document.querySelector('#pricing h3'), mode: 'section' },
+    { el: document.querySelector('#about h3'), mode: 'section' },
     { el: document.querySelector('#contact h3'), mode: 'section' }
 ].filter(item => item.el);
-
-const hoveredHeadings = new WeakMap();
 
 function clamp(value, min, max) {
     return Math.min(max, Math.max(min, value));
@@ -13,51 +12,27 @@ function clamp(value, min, max) {
 
 function getHeadingScrollProgress(el, mode, scrollPosition, windowHeight) {
     if (mode === 'hero') {
-        return clamp(scrollPosition / (windowHeight * 0.3), 0, 1);
+        return clamp(scrollPosition / (windowHeight * 0.1), 0, 1);
     }
-
     const rect = el.getBoundingClientRect();
-    const startPoint = windowHeight * 0.9;
-    const endPoint = windowHeight * 0.3;
+    const startPoint = windowHeight * 0.8;
+    const endPoint = windowHeight * 0.55;
     return clamp((startPoint - rect.top) / (startPoint - endPoint), 0, 1);
 }
 
 function updateHeadingVisuals(scrollPosition, windowHeight) {
     animatedHeadings.forEach(({ el, mode }) => {
-        const scrollProgress = getHeadingScrollProgress(el, mode, scrollPosition, windowHeight);
-        const scrollUnderlineWidth = scrollProgress * 100;
-        const scrollFontWeight = 300 + (scrollProgress * 400);
-
-        const isHovered = hoveredHeadings.get(el) === true;
-        const hoverUnderlineWidth = isHovered ? 100 : 0;
-        const hoverFontWeight = isHovered ? 700 : 300;
-
-        const finalUnderlineWidth = Math.max(scrollUnderlineWidth, hoverUnderlineWidth);
-        const finalFontWeight = Math.max(scrollFontWeight, hoverFontWeight);
-
-        el.style.setProperty('--underline-width', `${finalUnderlineWidth}%`);
-        el.style.fontWeight = `${finalFontWeight}`;
+        const progress = getHeadingScrollProgress(el, mode, scrollPosition, windowHeight);
+        el.style.setProperty('--underline-width', `${progress * 100}%`);
+        el.style.fontWeight = `${300 + (progress * 400)}`;
     });
 }
-
-animatedHeadings.forEach(({ el }) => {
-    hoveredHeadings.set(el, false);
-
-    el.addEventListener('mouseenter', () => {
-        hoveredHeadings.set(el, true);
-        updateHeadingVisuals(window.scrollY, window.innerHeight);
-    });
-
-    el.addEventListener('mouseleave', () => {
-        hoveredHeadings.set(el, false);
-        updateHeadingVisuals(window.scrollY, window.innerHeight);
-    });
-});
 
 // Scroll-based animations
 window.addEventListener('scroll', () => {
     const hero = document.getElementById('hero');
     const servicesSection = document.getElementById('services-section');
+    const aboutSection = document.getElementById('about');
     const pricingSection = document.getElementById('pricing');
     const pricingTable = document.querySelector('.pricing-table');
     const scrollPosition = window.scrollY;
@@ -65,26 +40,36 @@ window.addEventListener('scroll', () => {
 
     updateHeadingVisuals(scrollPosition, windowHeight);
     
-    // Fade out hero section
-    if (scrollPosition > windowHeight * 0.3) {
-        hero.classList.add('fade-out');
-        servicesSection.classList.add('visible');
-    } else {
-        hero.classList.remove('fade-out');
-        servicesSection.classList.remove('visible');
+    // Darken hero section when scrolled past
+    if (hero) {
+        const heroRect = hero.getBoundingClientRect();
+        if (heroRect.bottom < windowHeight * 0.5) {
+            hero.classList.add('fade-out');
+        } else {
+            hero.classList.remove('fade-out');
+        }
     }
 
-    const servicesRect = servicesSection.getBoundingClientRect();
-    if (servicesRect.bottom < windowHeight * 0.45) {
-        servicesSection.classList.add('fade-out');
-    } else {
-        servicesSection.classList.remove('fade-out');
+    if (servicesSection) {
+        const servicesRect = servicesSection.getBoundingClientRect();
+        if (servicesRect.bottom < windowHeight * 0.45) {
+            servicesSection.classList.add('fade-out');
+        } else {
+            servicesSection.classList.remove('fade-out');
+        }
+    }
+
+    if (aboutSection) {
+        const aboutRect = aboutSection.getBoundingClientRect();
+        if (aboutRect.bottom < windowHeight * 0.45) {
+            aboutSection.classList.add('fade-out');
+        } else {
+            aboutSection.classList.remove('fade-out');
+        }
     }
 
     if (pricingSection && pricingTable) {
         const tableRect = pricingTable.getBoundingClientRect();
-
-        // Start fading only after the table itself starts scrolling past the top
         const fadeProgress = clamp((-tableRect.top) / (tableRect.height * 0.35), 0, 1);
         const tableOpacity = 1 - (0.72 * fadeProgress);
         pricingSection.style.opacity = `${tableOpacity}`;
@@ -122,6 +107,116 @@ if (serviceImages.length && initialServiceImage) {
     serviceImages.forEach(img => img.classList.remove('active'));
     initialServiceImage.classList.add('active');
 }
+
+// ── Floating Background Shapes ─────────────────────────
+(function createFloatingShapes() {
+    const container = document.getElementById('particles-container');
+    if (!container) return;
+
+    const shapes = ['🚀', '✦', '◆', '⬡', '✧', '△', '⭑', '⚡', '✶', '◇', '⬢', '★'];
+    const count = window.innerWidth < 600 ? 14 : 25;
+
+    for (let i = 0; i < count; i++) {
+        const el = document.createElement('div');
+        el.className = 'floaty';
+        el.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+
+        const size = 10 + Math.random() * 18;
+        const opacity = 0.08 + Math.random() * 0.16;
+        const duration = 8 + Math.random() * 14;
+        const delay = -(Math.random() * duration);
+
+        // Random direction — fly from one side/edge to another
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 600 + Math.random() * 800;
+        const startX = -Math.cos(angle) * distance * 0.5;
+        const startY = -Math.sin(angle) * distance * 0.5;
+        const endX   =  Math.cos(angle) * distance * 0.5;
+        const endY   =  Math.sin(angle) * distance * 0.5;
+        const rotStart = Math.random() * 360;
+        const rotEnd   = rotStart + (Math.random() - 0.5) * 360;
+
+        // Place origin randomly on screen
+        const ox = Math.random() * 100;
+        const oy = Math.random() * 100;
+
+        el.style.cssText = `
+            left:${ox}%;top:${oy}%;
+            --f-size:${size}px;
+            --f-opacity:${opacity};
+            --f-dur:${duration}s;
+            --f-delay:${delay}s;
+            --f-startX:${startX}px;--f-startY:${startY}px;
+            --f-endX:${endX}px;--f-endY:${endY}px;
+            --f-rot-start:${rotStart}deg;--f-rot-end:${rotEnd}deg;
+        `;
+        container.appendChild(el);
+    }
+})();
+
+// ── Testimonial Carousel ───────────────────────────────
+(function initTestimonialCarousel() {
+    const track  = document.querySelector('.testimonial-track');
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots   = document.querySelectorAll('.testimonial-dot');
+    if (!slides.length || !track) return;
+
+    // Measure the tallest slide and lock the track height
+    function setTrackHeight() {
+        let maxH = 0;
+        slides.forEach(s => {
+            s.style.position = 'relative';
+            s.style.visibility = 'hidden';
+            s.style.opacity = '0';
+            s.style.display = 'block';
+            maxH = Math.max(maxH, s.offsetHeight);
+            s.style.position = '';
+            s.style.visibility = '';
+            s.style.opacity = '';
+            s.style.display = '';
+        });
+        track.style.height = maxH + 'px';
+    }
+    setTrackHeight();
+    window.addEventListener('resize', setTrackHeight);
+
+    let current  = 0;
+    let interval;
+
+    function goToSlide(index) {
+        const outgoing = current;
+        slides[outgoing].classList.remove('active');
+        slides[outgoing].classList.add('exit');
+        dots[outgoing].classList.remove('active');
+
+        current = index;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+
+        setTimeout(() => {
+            slides[outgoing].classList.remove('exit');
+        }, 500);
+    }
+
+    function startAutoplay() {
+        interval = setInterval(() => {
+            goToSlide((current + 1) % slides.length);
+        }, 5000);
+    }
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const idx = parseInt(dot.dataset.slide);
+            if (idx !== current) {
+                goToSlide(idx);
+                clearInterval(interval);
+                startAutoplay();
+            }
+        });
+    });
+
+    startAutoplay();
+})();
 
 // ── Hamburger mobile menu (compact dropdown) ──────
 const hamburger = document.querySelector('.hamburger');
