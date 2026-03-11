@@ -48,22 +48,21 @@ body > * {
     color: var(--text-main);
     text-align: center;
     width: fit-content;
-    animation: hide-logo linear forwards;
+    pointer-events: none;
+    transform-origin: left center;
+    animation: shrink-logo linear forwards;
     animation-timeline: scroll();
     animation-range: 0px 200px;
-    pointer-events: none;
 }
 
-@keyframes hide-logo {
+@keyframes shrink-logo {
     0% {
-        opacity: 1;
-        max-width: 200px;
-        margin-right: 0;
+        scale: 1;
+        margin-right: 1rem;
     }
     100% {
-        opacity: 0;
-        max-width: 0;
-        margin-right: -2rem;
+        scale: 0.55;
+        margin-right: -1rem;
     }
 }
 
@@ -100,25 +99,20 @@ header {
 
 @keyframes shrink-header {
     0% {
-        padding: 0.75rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
+        padding: 0.75rem 2rem;
     }
     100% {
-        padding: 0rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
+        padding: 0.25rem 1.25rem 0.25rem 1.75rem;
     }
 }
 
 nav {
     width: fit-content;
     color: var(--text-main);
-    padding: 0.5rem;
     align-items: center;
     display: flex;
-    margin-left: 2rem;
     gap: 1.5rem;
+    padding: 0.5rem;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     white-space: nowrap;
 }
@@ -165,14 +159,14 @@ footer {
 /* Hero Section */
 #hero {
     width: 100%;
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5rem 2rem 2rem;
     opacity: 1;
     transition: opacity 0.5s ease;
-    margin-top: 4rem;
+    box-sizing: border-box;
 }
 
 #hero h3,
@@ -267,7 +261,7 @@ footer {
 
 .services-left {
     position: sticky;
-    top: 2rem;
+    top: 8.5rem;
     height: fit-content;
 }
 
@@ -275,7 +269,7 @@ footer {
     position: relative;
     width: 100%;
     height: 500px;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     overflow: hidden;
     background: linear-gradient(320deg, #1b2130, #10151f);
     border: 0.1rem solid var(--border);
@@ -308,7 +302,7 @@ footer {
 .service-item {
     background: linear-gradient(320deg, #1b2130, #10151f);
     border: 0.1rem solid var(--border);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 2.5rem;
     min-height: 300px;
     display: flex;
@@ -319,7 +313,7 @@ footer {
 }
 
 .service-item h4 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 400;
     color: var(--text-main);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -359,7 +353,7 @@ footer {
     margin: 0 auto;
     border-collapse: collapse;
     background: linear-gradient(320deg, #1b2130, #10151f);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     overflow: hidden;
     border: 0.1rem solid var(--border);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
@@ -418,7 +412,7 @@ footer {
 .about-intro {
     background: linear-gradient(320deg, #1b2130, #10151f);
     border: 0.1rem solid var(--border);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 2rem;
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(8px);
@@ -440,7 +434,7 @@ footer {
 .founder-card {
     background: linear-gradient(320deg, #1b2130, #10151f);
     border: 0.1rem solid var(--border);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 2rem;
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(8px);
@@ -551,7 +545,7 @@ footer {
 .about-value-card {
     background: linear-gradient(320deg, rgba(27, 33, 48, 0.7), rgba(16, 21, 31, 0.5));
     border: 1px solid var(--border);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 1.4rem 1.6rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(12px);
@@ -588,7 +582,7 @@ footer {
 .about-bottom {
     background: linear-gradient(320deg, #1b2130, #10151f);
     border: 0.1rem solid var(--border);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 2rem;
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(8px);
@@ -633,7 +627,7 @@ footer {
 .contact-form {
     background: linear-gradient(320deg, #1b2130, #10151f);
     border: 0.1rem solid var(--border);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 1.5rem;
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(10px);
@@ -823,7 +817,7 @@ footer {
 .hero-card {
     background: linear-gradient(320deg, rgba(27, 33, 48, 0.7), rgba(16, 21, 31, 0.5));
     border: 1px solid var(--border);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 1.4rem 1.8rem;
     text-align: center;
     display: flex;
@@ -890,7 +884,7 @@ footer {
     padding: 1.2rem 1.5rem;
     background: linear-gradient(320deg, rgba(27, 33, 48, 0.5), rgba(16, 21, 31, 0.35));
     border: 1px solid var(--border);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     position: absolute;
@@ -963,7 +957,7 @@ footer {
     gap: 0.5rem;
     padding: 0.7rem 2rem;
     border: 1px solid var(--border);
-    border-radius: 50em;
+    border-radius: 0.5rem;
     background: linear-gradient(320deg, rgba(27, 33, 48, 0.6), rgba(16, 21, 31, 0.4));
     color: var(--text-main);
     text-decoration: none;
@@ -1151,7 +1145,7 @@ footer {
    Small phones  (≤ 480px)
    ──────────────────────────────────────────────── */
 @media (max-width: 480px) {
-    header { padding: 0.4rem 0.8rem; border-radius: 1rem; }
+    header { padding: 0.4rem 0.8rem; border-radius: 0.5rem; }
     .hero-content { gap: 0.8rem; }
     .hero-card { padding: 0.7rem 0.8rem; }
     .hero-card-number { font-size: 1.2rem; }

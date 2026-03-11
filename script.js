@@ -6,13 +6,23 @@ const animatedHeadings = [
     { el: document.querySelector('#contact h3'), mode: 'section' }
 ].filter(item => item.el);
 
+// Track initial top positions to detect headings already at top on load
+animatedHeadings.forEach(item => {
+    item.initialTop = item.el.getBoundingClientRect().top + window.scrollY;
+});
+
 function clamp(value, min, max) {
     return Math.min(max, Math.max(min, value));
 }
 
-function getHeadingScrollProgress(el, mode, scrollPosition, windowHeight) {
+function getHeadingScrollProgress(el, mode, scrollPosition, windowHeight, initialTop) {
     if (mode === 'hero') {
         return clamp(scrollPosition / (windowHeight * 0.1), 0, 1);
+    }
+    // If heading starts near the top of the page (within viewport), use scroll-based animation
+    if (initialTop < windowHeight) {
+        const scrollNeeded = windowHeight * 0.25;
+        return clamp(scrollPosition / scrollNeeded, 0, 1);
     }
     const rect = el.getBoundingClientRect();
     const startPoint = windowHeight * 0.8;
@@ -21,8 +31,8 @@ function getHeadingScrollProgress(el, mode, scrollPosition, windowHeight) {
 }
 
 function updateHeadingVisuals(scrollPosition, windowHeight) {
-    animatedHeadings.forEach(({ el, mode }) => {
-        const progress = getHeadingScrollProgress(el, mode, scrollPosition, windowHeight);
+    animatedHeadings.forEach(({ el, mode, initialTop }) => {
+        const progress = getHeadingScrollProgress(el, mode, scrollPosition, windowHeight, initialTop);
         el.style.setProperty('--underline-width', `${progress * 100}%`);
         el.style.fontWeight = `${300 + (progress * 400)}`;
     });
