@@ -1,18 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PKWQ0YL880"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PKWQ0YL880');
+        </script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>W&D Media</title>
+        <title>W&D Media | UK Web Design, Hosting & SEO Agency</title>
+        <meta name="description" content="W&D Media is a UK-based web design agency offering bespoke website design, hosting, SEO and social media management. First draft in 7 days. Founder-led projects.">
+        <meta name="keywords" content="web design, website development, UK web agency, SEO, web hosting, social media management, small business websites">
+        <link rel="canonical" href="https://wdmedia.dev/">
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="W&D Media | UK Web Design, Hosting & SEO Agency">
+        <meta property="og:description" content="Bespoke website design, hosting, SEO and social media management. First draft in 7 days. Founder-led projects.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://wdmedia.dev/">
+        <meta property="og:site_name" content="W&D Media">
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="W&D Media | UK Web Design, Hosting & SEO Agency">
+        <meta name="twitter:description" content="Bespoke website design, hosting, SEO and social media management. First draft in 7 days. Founder-led projects.">
+
         <link rel="stylesheet" href="styles.css">
-        <link rel="icon" href="wand-media-logo-favicon.svg" sizes="16x16" type="image/svg">
+        <link rel="icon" href="wand-media-logo-favicon.svg" sizes="16x16" type="image/svg+xml">
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "W&D Media",
+            "url": "https://wdmedia.dev",
+            "logo": "https://wdmedia.dev/wand-media-logo-favicon.svg",
+            "description": "UK-based web design agency offering bespoke website design, hosting, SEO and social media management.",
+            "foundingDate": "2025",
+            "founders": [
+                { "@type": "Person", "name": "Samuel Douek", "jobTitle": "Co-Founder & Developer" },
+                { "@type": "Person", "name": "Oliver Woodford", "jobTitle": "Co-Founder & Creative Director" }
+            ],
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "admin@wdmedia.dev",
+                "telephone": "+447436058797",
+                "contactType": "customer service",
+                "availableLanguage": "English"
+            },
+            "sameAs": [
+                "https://www.instagram.com/wdmedia.dev/",
+                "https://www.linkedin.com/company/w-d-media",
+                "https://www.facebook.com/share/189JQAcK5Y/"
+            ],
+            "areaServed": "GB",
+            "serviceType": ["Web Design", "Web Hosting", "SEO", "Social Media Management"]
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "W&D Media",
+            "url": "https://wdmedia.dev"
+        }
+        </script>
     </head>
     <body>
         <div id="particles-container" aria-hidden="true"></div>
         <header>
             <div id="logo">
-                <h1>W&D</h1>
-                <h2>media</h2>
+                <span class="logo-title">W&D</span>
+                <span class="logo-subtitle">media</span>
             </div>
             <nav>
                 <a href="#hero">Home</a>
@@ -27,10 +91,11 @@
                 <span></span>
             </button>
         </header>
-        
+
+        <main>
         <section id="hero">
             <div class="hero-content">
-                <h3>Websites built to be seen.</h3>
+                <h1>Websites built to be seen.</h1>
                 <p class="hero-subtitle">Design &middot; Build &middot; Host &middot; Grow; all in one place.</p>
 
                 <div class="hero-cards">
@@ -80,32 +145,32 @@ Strategy first. Design second. Development third.&rdquo;</p>
         </section>
 
         <section id="services-section">
-            <h3>Our Services</h3>
+            <h2>Our Services</h2>
             <div class="services-container">
                 <div class="services-left">
                     <div class="image-container">
-                        <img src="coding.gif" alt="Service 1" class="service-image active" data-service="1">
-                        <img src="server.gif" alt="Service 2" class="service-image" data-service="2">
-                        <img src="seo.gif" alt="Service 3" class="service-image" data-service="3">
-                        <img src="socialMedia.gif" alt="Service 4" class="service-image" data-service="4">
+                        <img src="coding.gif" alt="Web design and development service" class="service-image active" data-service="1">
+                        <img src="server.gif" alt="Web hosting and server management" class="service-image" data-service="2" loading="lazy">
+                        <img src="seo.gif" alt="Search engine optimisation service" class="service-image" data-service="3" loading="lazy">
+                        <img src="socialMedia.gif" alt="Social media strategy and management" class="service-image" data-service="4" loading="lazy">
                     </div>
                 </div>
                 <div class="services-right">
                     <div class="service-item" data-service="1">
-                        <h4>Web Design</h4>
+                        <h3>Web Design</h3>
                         <p>We create bespoke websites tailored to your business, developed professionally rather than off-the-shelf website builders.</p>
                     </div>
                     <div class="service-item" data-service="2">
-                        <h4>Web Hosting</h4>
+                        <h3>Web Hosting</h3>
                         <p>Once your website is built, it must be securely hosted and continuously maintained to remain live and accessible.<br><br>
 We manage your hosting environment, domain renewals, server performance, and ensure your website is properly indexed by major search engines keeping it online, secure, and visible.</p>
                     </div>
                     <div class="service-item" data-service="3">
-                        <h4>Search Engine Optimisation</h4>
+                        <h3>Search Engine Optimisation</h3>
                         <p>Being indexed is only the first step; ranking highly is what drives real traffic.<br><br>We enhance your website’s technical structure, content, and performance to improve visibility and organic growth, with optional paid search campaigns available to maximise reach such as Google Advertising.</p>
                     </div>
                     <div class="service-item" data-service="4">
-                        <h4>Social Media Strategy</h4>
+                        <h3>Social Media Strategy</h3>
                         <p>We manage and align your social media presence across Instagram, TikTok, Facebook, LinkedIn and more: connecting platforms together and integrating them directly with your website for a cohesive digital ecosystem.</p>
                     </div>
                 </div>
@@ -113,7 +178,7 @@ We manage your hosting environment, domain renewals, server performance, and ens
         </section>
         
         <section id="about">
-            <h3>About Us</h3>
+            <h2>About Us</h2>
             <div class="about-content">
                 <div class="about-intro">
                     <p>W&D Media is a UK-based digital studio run by two young entrepreneurs who love clean design, smart development, and building meaningful online experiences. We design and code websites that look great, perform fast, and actually help your business grow and we manage social media, client communication, and every detail along the way.</p>
@@ -122,10 +187,10 @@ We manage your hosting environment, domain renewals, server performance, and ens
                 <div class="founders-grid">
                     <div class="founder-card">
                         <div class="founder-photo">
-                            <img src="samuelDouek.jpeg" alt="Samuel Douek" class="founder-img">
+                            <img src="samuelDouek.jpeg" alt="Samuel Douek, Co-Founder and Developer at W&D Media" class="founder-img" loading="lazy">
                         </div>
                         <div class="founder-info">
-                            <h4>Samuel Douek</h4>
+                            <h3>Samuel Douek</h3>
                             <span class="founder-role">Co-Founder &amp; Developer</span>
                             <p>Passionate about building fast, accessible websites that help small businesses punch above their weight online.</p>
                             <a href="https://www.linkedin.com/in/samuel-douek-808663329/" class="linkedin-link" target="_blank" rel="noopener noreferrer">
@@ -137,10 +202,10 @@ We manage your hosting environment, domain renewals, server performance, and ens
 
                     <div class="founder-card">
                         <div class="founder-photo">
-                            <img src="oliverWoodford.jpeg" alt="Oliver Woodford" class="founder-img">
+                            <img src="oliverWoodford.jpeg" alt="Oliver Woodford, Co-Founder and Creative Director at W&D Media" class="founder-img" loading="lazy">
                         </div>
                         <div class="founder-info">
-                            <h4>Oliver Woodford</h4>
+                            <h3>Oliver Woodford</h3>
                             <span class="founder-role">Co-Founder &amp; Creative Director</span>
                             <p>Drives customer acquisition, brand presence, and creative direction. Handles contracts, documentation, and social media while ensuring every client journey feels smooth and personal.</p>
                             <a href="https://www.linkedin.com/in/oliver-woodford-082012365/" class="linkedin-link" target="_blank" rel="noopener noreferrer">
@@ -154,17 +219,17 @@ We manage your hosting environment, domain renewals, server performance, and ens
                 <div class="about-values-row">
     <div class="about-value-card">
         <span class="about-value-icon">&#128640;</span>
-        <h5>Hands-On Founders</h5>
+        <h4>Hands-On Founders</h4>
         <p>Every project is built directly by us, from design to launch; no middlemen, no fluff, just results.</p>
     </div>
     <div class="about-value-card">
         <span class="about-value-icon">&#127919;</span>
-        <h5>Creative & Curious</h5>
+        <h4>Creative & Curious</h4>
         <p>We combine design, coding, and strategy with a youthful energy to make websites that actually stand out.</p>
     </div>
     <div class="about-value-card">
         <span class="about-value-icon">&#128187;</span>
-        <h5>End-to-End Management</h5>
+        <h4>End-to-End Management</h4>
         <p>From hosting and SEO to social media and client communications, we handle everything so you don’t have to.</p>
     </div>
 </div>
@@ -174,19 +239,19 @@ We manage your hosting environment, domain renewals, server performance, and ens
         </section>
 
         <section id="contact">
-            <h3>Contact Us</h3>
+            <h2>Contact Us</h2>
             <div class="contact-grid">
                 <div class="contact-details">
-                    <h4>Get in touch</h4>
+                    <h3>Get in touch</h3>
                     <p>Email: admin@wdmedia.dev</p>
                     <p>Phone/WhatsApp: +44 7436 058797</p>
                     <p>Phone/WhatsApp: +44 7983 911178</p>
                     <br>
-                    <h4>Social Media</h4>
+                    <h3>Social Media</h3>
                     <ul class="social-links">
-                        <li><a href="https://www.instagram.com/wdmedia.dev/" aria-label="Instagram">Instagram</a></li>
-                        <li><a href="https://www.linkedin.com/company/w-d-media" aria-label="LinkedIn">LinkedIn</a></li>
-                        <li><a href="https://www.facebook.com/share/189JQAcK5Y/?mibextid=wwXIfr" aria-label="Facebook">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/wdmedia.dev/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/company/w-d-media" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><a href="https://www.facebook.com/share/189JQAcK5Y/?mibextid=wwXIfr" aria-label="Facebook" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                     </ul>
                 </div>
 
@@ -219,6 +284,7 @@ We manage your hosting environment, domain renewals, server performance, and ens
             </div>
         </section>
 
+        </main>
 
         
         <footer>

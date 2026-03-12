@@ -1,9 +1,9 @@
 const animatedHeadings = [
-    { el: document.querySelector('#hero h3'), mode: 'hero' },
-    { el: document.querySelector('#services-section h3'), mode: 'section' },
-    { el: document.querySelector('#pricing h3'), mode: 'section' },
-    { el: document.querySelector('#about h3'), mode: 'section' },
-    { el: document.querySelector('#contact h3'), mode: 'section' }
+    { el: document.querySelector('#hero h1'), mode: 'hero' },
+    { el: document.querySelector('#services-section h2'), mode: 'section' },
+    { el: document.querySelector('#pricing h1'), mode: 'section' },
+    { el: document.querySelector('#about h2'), mode: 'section' },
+    { el: document.querySelector('#contact h2'), mode: 'section' }
 ].filter(item => item.el);
 
 // Track initial top positions to detect headings already at top on load

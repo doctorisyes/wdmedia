@@ -1,18 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PKWQ0YL880"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PKWQ0YL880');
+        </script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pricing – W&D Media</title>
+        <title>W&D Media - Pricing | Web Design, Hosting & SEO Packages</title>
+        <meta name="description" content="Transparent pricing for W&D Media services. Website builds from £200, hosting from £15/month, SEO from £50/month, and social media management from £20/month.">
+        <link rel="canonical" href="https://wdmedia.dev/pricing/">
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Pricing – W&D Media">
+        <meta property="og:description" content="Transparent pricing for web design, hosting, SEO, and social media services. Website builds from £200.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://wdmedia.dev/pricing/">
+        <meta property="og:site_name" content="W&D Media">
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Pricing – W&D Media">
+        <meta name="twitter:description" content="Transparent pricing for web design, hosting, SEO, and social media services. Website builds from £200.">
+
         <link rel="stylesheet" href="../styles.css">
-        <link rel="icon" href="../wand-media-logo-favicon.svg" sizes="16x16" type="image/svg">
+        <link rel="icon" href="../wand-media-logo-favicon.svg" sizes="16x16" type="image/svg+xml">
+
+        <meta name="keywords" content="web design pricing, website cost UK, SEO pricing, hosting prices, social media management cost, affordable web design">
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "provider": {
+                "@type": "Organization",
+                "name": "W&D Media",
+                "url": "https://wdmedia.dev"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Web Services",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": { "@type": "Service", "name": "Website Build" },
+                        "price": "200",
+                        "priceCurrency": "GBP",
+                        "description": "Price increases with number of pages or complexity."
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": { "@type": "Service", "name": "Hosting & Maintenance" },
+                        "price": "15",
+                        "priceCurrency": "GBP",
+                        "description": "For static websites. Non-static or complex sites: £25/month. Domain costs added separately."
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": { "@type": "Service", "name": "SEO Starter Package" },
+                        "price": "50",
+                        "priceCurrency": "GBP",
+                        "description": "Flat fee, includes indexing and basic optimisation."
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": { "@type": "Service", "name": "Social Media Management" },
+                        "price": "20",
+                        "priceCurrency": "GBP",
+                        "description": "Starter package includes two platforms. Additional platforms +£20/month each."
+                    }
+                ]
+            }
+        }
+        </script>
     </head>
     <body>
         <div id="particles-container" aria-hidden="true"></div>
         <header>
             <div id="logo">
-                <h1>W&D</h1>
-                <h2>media</h2>
+                <span class="logo-title">W&D</span>
+                <span class="logo-subtitle">media</span>
             </div>
             <nav>
                 <a href="/#hero">Home</a>
@@ -28,8 +101,9 @@
             </button>
         </header>
 
+        <main>
         <section id="pricing">
-            <h3>Pricing</h3>
+            <h1>Pricing</h1>
             <table class="pricing-table">
                 <thead>
                 <tr>
@@ -62,6 +136,7 @@
                 </tbody>
             </table>
         </section>
+        </main>
 
         <footer>
             &copy; 2026 W&D Media. All Rights Reserved.
