@@ -9,18 +9,18 @@ html {
 }
 
 :root {
-    --bg-base: #0f1115;
-    --bg-elevated: #151a22;
-    --text-main: #f5f7fa;
-    --text-body: #b8c1cc;
-    --text-muted: #7a8494;
-    --accent: #4f7df9;
-    --glow: rgba(79, 125, 249, 0.25);
-    --border: rgba(255, 255, 255, 0.08);
+    --bg-base: #F5F1EB;
+    --bg-elevated: #FFFFFF;
+    --text-main: #1a1a1a;
+    --text-body: #5D5D5D;
+    --text-muted: #9B9B9B;
+    --accent: #C77D4F;
+    --glow: rgba(199, 125, 79, 0.12);
+    --border: rgba(0, 0, 0, 0.1);
 }
 
 body {
-    background: radial-gradient(circle at 50% 0%, #1a1f2b 0%, #0f1115 60%);
+    background: #F5F1EB;
     min-height: 100vh;
     color: var(--text-main);
     position: relative;
@@ -32,10 +32,10 @@ body::before {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
     background-size: 140px 140px;
-    opacity: 0.45;
+    opacity: 0.4;
     z-index: 0;
 }
 
@@ -87,8 +87,8 @@ header {
     transform: translateX(-50%);
     z-index: 1000;
     padding: 0.75rem;
-    background: linear-gradient(320deg, rgba(27, 33, 48, 0.75), rgba(16, 21, 31, 0.6));
-    border: 0.1rem solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.8);
+    border: 0.1rem solid var(--border);
     border-radius: 50em;
     display: flex;
     padding-left: 2rem;
@@ -99,7 +99,7 @@ header {
     animation-range: 0px 200px;
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 @keyframes shrink-header {
@@ -118,7 +118,7 @@ nav {
     display: flex;
     gap: 1.5rem;
     padding: 0.5rem;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
     white-space: nowrap;
 }
 
@@ -126,11 +126,10 @@ nav a {
     height: fit-content;
     color: inherit;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: color 0.2s ease;
     white-space: nowrap;
     cursor: pointer;
-    font-weight: 300;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.15), 0 0 30px rgba(79, 125, 249, 0.15);
+    font-weight: 400;
     position: relative;
 }
 #hero,
@@ -142,14 +141,12 @@ nav a {
 }
 
 nav a:hover {
-    font-weight: 500;
-    text-shadow: 0 0 18px rgba(255, 255, 255, 0.35), 0 0 40px rgba(79, 125, 249, 0.5);
     color: var(--accent);
 }
 
 footer {
     padding: 0.75rem;
-    background: linear-gradient(320deg, #1b2130, #10151f);
+    background: rgba(255, 255, 255, 0.6);
     margin: 1rem auto;
     border: 0.1rem solid var(--border);
     border-radius: 50em;
@@ -157,8 +154,8 @@ footer {
     padding-left: 2rem;
     padding-right: 2rem;
     width: fit-content;
-    color: var(--text-main);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--text-body);
+    font-family: 'Inter', sans-serif;
 }
 
 /* Hero Section */
@@ -182,12 +179,12 @@ footer {
     font-weight: 300;
     --underline-width: 0%;
     text-align: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
     position: relative;
     display: inline-block;
     cursor: default;
-    transition: font-weight 0.3s ease;
-    text-shadow: 0 0 18px rgba(255, 255, 255, 0.25), 0 0 40px var(--glow);
+    transition: font-weight 0.3s ease, transform 0.3s ease;
+    transform-origin: left center;
 }
 
 #hero h1 {
@@ -276,10 +273,9 @@ footer {
     height: 500px;
     border-radius: 0.5rem;
     overflow: hidden;
-    background: linear-gradient(320deg, #1b2130, #10151f);
+    background: #FFFFFF;
     border: 0.1rem solid var(--border);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .service-image {
@@ -305,7 +301,7 @@ footer {
 }
 
 .service-item {
-    background: linear-gradient(320deg, #1b2130, #10151f);
+    background: #FFFFFF;
     border: 0.1rem solid var(--border);
     border-radius: 0.5rem;
     padding: 2.5rem;
@@ -313,22 +309,21 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .service-item h3 {
     font-size: 1.8rem;
     font-weight: 400;
     color: var(--text-main);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .service-item p {
     font-size: 1.1rem;
     line-height: 1.6;
     color: var(--text-body);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 #pricing {
@@ -337,7 +332,7 @@ footer {
     padding: 5rem 1.5rem 0;
     text-align: left;
     color: var(--text-main);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
     opacity: 1;
     transition: opacity 0.5s ease;
 }
@@ -357,12 +352,11 @@ footer {
     max-width: none;
     margin: 0 auto;
     border-collapse: collapse;
-    background: linear-gradient(320deg, #1b2130, #10151f);
+    background: #FFFFFF;
     border-radius: 0.5rem;
     overflow: hidden;
     border: 0.1rem solid var(--border);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .pricing-table th, .pricing-table td {
@@ -372,7 +366,7 @@ footer {
 }
 
 .pricing-table th {
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.03);
     font-size: 1.25rem;
 }
 
@@ -391,7 +385,7 @@ footer {
     margin: 2rem 0;
     padding: 0 1.5rem;
     color: var(--text-main);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
     text-align: left;
     opacity: 1;
     transition: opacity 0.5s ease;
@@ -415,12 +409,11 @@ footer {
 }
 
 .about-intro {
-    background: linear-gradient(320deg, #1b2130, #10151f);
+    background: #FFFFFF;
     border: 0.1rem solid var(--border);
     border-radius: 0.5rem;
     padding: 2rem;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .about-intro p {
@@ -437,12 +430,11 @@ footer {
 }
 
 .founder-card {
-    background: linear-gradient(320deg, #1b2130, #10151f);
+    background: #FFFFFF;
     border: 0.1rem solid var(--border);
     border-radius: 0.5rem;
     padding: 2rem;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -453,8 +445,8 @@ footer {
 
 .founder-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 14px 45px rgba(79, 125, 249, 0.15);
-    border-color: rgba(79, 125, 249, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.15);
 }
 
 .founder-photo {
@@ -480,11 +472,11 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(79, 125, 249, 0.2), rgba(79, 125, 249, 0.05));
+    background: linear-gradient(135deg, rgba(199, 125, 79, 0.12), rgba(199, 125, 79, 0.04));
     font-size: 2.4rem;
     font-weight: 600;
     color: var(--accent);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .founder-info {
@@ -521,7 +513,7 @@ footer {
     padding: 0.5rem 1.2rem;
     border: 1px solid var(--border);
     border-radius: 50em;
-    background: linear-gradient(320deg, rgba(27, 33, 48, 0.6), rgba(16, 21, 31, 0.4));
+    background: rgba(0, 0, 0, 0.02);
     color: var(--text-main);
     text-decoration: none;
     font-size: 0.85rem;
@@ -548,20 +540,18 @@ footer {
 }
 
 .about-value-card {
-    background: linear-gradient(320deg, rgba(27, 33, 48, 0.7), rgba(16, 21, 31, 0.5));
+    background: #FFFFFF;
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     padding: 1.4rem 1.6rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .about-value-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(79, 125, 249, 0.15);
-    border-color: rgba(79, 125, 249, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.15);
 }
 
 .about-value-icon {
@@ -585,12 +575,11 @@ footer {
 
 /* About Bottom */
 .about-bottom {
-    background: linear-gradient(320deg, #1b2130, #10151f);
+    background: #FFFFFF;
     border: 0.1rem solid var(--border);
     border-radius: 0.5rem;
     padding: 2rem;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .about-bottom h3 {
@@ -611,7 +600,7 @@ footer {
     margin: 3rem 0 2rem;
     padding: 0 1.5rem;
     color: var(--text-main);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
     text-align: left;
 }
 
@@ -630,12 +619,11 @@ footer {
 
 .contact-details,
 .contact-form {
-    background: linear-gradient(320deg, #1b2130, #10151f);
+    background: #FFFFFF;
     border: 0.1rem solid var(--border);
     border-radius: 0.5rem;
     padding: 1.5rem;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .contact-details h3 {
@@ -683,7 +671,7 @@ footer {
 .contact-form select,
 .contact-form textarea {
     width: 100%;
-    background: rgba(9, 11, 15, 0.85);
+    background: #F5F1EB;
     color: var(--text-main);
     border: 1px solid var(--border);
     border-radius: 0.6rem;
@@ -696,8 +684,8 @@ footer {
     padding: 0.8rem 1rem;
     border-radius: 0.6rem;
     border: 1px solid var(--border);
-    background: linear-gradient(320deg, #2b3960, #18203b);
-    color: var(--text-main);
+    background: var(--accent);
+    color: #FFFFFF;
     font: inherit;
     cursor: pointer;
     transition: filter 0.2s ease;
@@ -795,7 +783,7 @@ footer {
 }
 
 .hero-subtitle {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.25rem;
     font-weight: 300;
     color: var(--text-body);
@@ -820,7 +808,7 @@ footer {
 }
 
 .hero-card {
-    background: linear-gradient(320deg, rgba(27, 33, 48, 0.7), rgba(16, 21, 31, 0.5));
+    background: rgba(255, 255, 255, 0.7);
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     padding: 1.4rem 1.8rem;
@@ -830,7 +818,7 @@ footer {
     gap: 0.4rem;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     flex: 1;
     min-width: 140px;
     max-width: fit-content;
@@ -842,8 +830,8 @@ footer {
 
 .hero-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(79, 125, 249, 0.15);
-    border-color: rgba(79, 125, 249, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.15);
 }
 
 @keyframes cardEnter {
@@ -852,15 +840,14 @@ footer {
 }
 
 .hero-card-number {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 2rem;
     font-weight: 600;
     color: var(--accent);
-    text-shadow: 0 0 20px var(--glow);
 }
 
 .hero-card-label {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     color: var(--text-muted);
     font-weight: 300;
@@ -887,7 +874,7 @@ footer {
     transition: opacity 0.5s ease, transform 0.5s ease;
     text-align: center;
     padding: 1.2rem 1.5rem;
-    background: linear-gradient(320deg, rgba(27, 33, 48, 0.5), rgba(16, 21, 31, 0.35));
+    background: rgba(255, 255, 255, 0.6);
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     backdrop-filter: blur(10px);
@@ -911,7 +898,7 @@ footer {
 }
 
 .testimonial-slide p {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     font-style: italic;
     color: var(--text-body);
@@ -920,7 +907,7 @@ footer {
 }
 
 .testimonial-author {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     color: var(--text-muted);
     font-weight: 400;
@@ -947,7 +934,6 @@ footer {
 .testimonial-dot.active {
     background: var(--accent);
     border-color: var(--accent);
-    box-shadow: 0 0 8px var(--glow);
 }
 
 .testimonial-dot:hover {
@@ -956,17 +942,17 @@ footer {
 
 /* Hero CTA */
 .hero-cta {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.7rem 2rem;
     border: 1px solid var(--border);
     border-radius: 0.5rem;
-    background: linear-gradient(320deg, rgba(27, 33, 48, 0.6), rgba(16, 21, 31, 0.4));
+    background: rgba(255, 255, 255, 0.6);
     color: var(--text-main);
     text-decoration: none;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 0.95rem;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -976,8 +962,8 @@ footer {
 }
 
 .hero-cta:hover {
-    border-color: rgba(79, 125, 249, 0.4);
-    box-shadow: 0 0 20px var(--glow);
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     color: var(--accent);
 }
 
