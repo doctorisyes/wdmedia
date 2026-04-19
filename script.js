@@ -79,10 +79,7 @@ window.addEventListener('scroll', () => {
     }
 
     if (pricingSection && pricingTable) {
-        const tableRect = pricingTable.getBoundingClientRect();
-        const fadeProgress = clamp((-tableRect.top) / (tableRect.height * 0.35), 0, 1);
-        const tableOpacity = 1 - (0.72 * fadeProgress);
-        pricingSection.style.opacity = `${tableOpacity}`;
+        // Keep pricing always fully visible
     }
     
     // Change images based on service items in view
@@ -164,68 +161,32 @@ if (serviceImages.length && initialServiceImage) {
     }
 })();
 
-// ── Testimonial Carousel ───────────────────────────────
-(function initTestimonialCarousel() {
-    const track  = document.querySelector('.testimonial-track');
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const dots   = document.querySelectorAll('.testimonial-dot');
-    if (!slides.length || !track) return;
+// ── Hero Browser Mockup ────────────────────────────────
+(function initHeroBrowser() {
+    const slides = document.querySelectorAll('.browser-slide');
+    const tabs   = document.querySelectorAll('.browser-tab');
+    if (!slides.length) return;
 
-    // Measure the tallest slide and lock the track height
-    function setTrackHeight() {
-        let maxH = 0;
-        slides.forEach(s => {
-            s.style.position = 'relative';
-            s.style.visibility = 'hidden';
-            s.style.opacity = '0';
-            s.style.display = 'block';
-            maxH = Math.max(maxH, s.offsetHeight);
-            s.style.position = '';
-            s.style.visibility = '';
-            s.style.opacity = '';
-            s.style.display = '';
-        });
-        track.style.height = maxH + 'px';
-    }
-    setTrackHeight();
-    window.addEventListener('resize', setTrackHeight);
+    let current = 0;
+    let timer;
 
-    let current  = 0;
-    let interval;
-
-    function goToSlide(index) {
-        const outgoing = current;
-        slides[outgoing].classList.remove('active');
-        slides[outgoing].classList.add('exit');
-        dots[outgoing].classList.remove('active');
-
+    function goTo(index) {
+        slides[current].classList.remove('active');
+        tabs[current].classList.remove('active');
         current = index;
         slides[current].classList.add('active');
-        dots[current].classList.add('active');
-
-        setTimeout(() => {
-            slides[outgoing].classList.remove('exit');
-        }, 500);
+        tabs[current].classList.add('active');
     }
 
-    function startAutoplay() {
-        interval = setInterval(() => {
-            goToSlide((current + 1) % slides.length);
-        }, 5000);
-    }
+    function advance() { goTo((current + 1) % slides.length); }
+    function startTimer() { timer = setInterval(advance, 3000); }
+    function resetTimer() { clearInterval(timer); startTimer(); }
 
-    dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            const idx = parseInt(dot.dataset.slide);
-            if (idx !== current) {
-                goToSlide(idx);
-                clearInterval(interval);
-                startAutoplay();
-            }
-        });
+    tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => { goTo(i); resetTimer(); });
     });
 
-    startAutoplay();
+    startTimer();
 })();
 
 // ── Hamburger mobile menu (compact dropdown) ──────
