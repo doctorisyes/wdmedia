@@ -1,6 +1,6 @@
-<h3 align="center">Woodford & Douek Media</h3>
+<h3 align="center">SD Media</h3>
 
 <p align="center">
-The official W&Dmedia website.<br>
-<a href="https://WDmedia.github.io">https://WDmedia.github.io</a>
+The official SDmedia website.<br>
+<a href="https://sdmedia.me">https://sdmedia.me</a>
 </p>
